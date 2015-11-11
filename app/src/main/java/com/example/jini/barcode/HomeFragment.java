@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -18,10 +17,9 @@ import com.google.zxing.integration.android.IntentResult;
  */
 public class HomeFragment extends Fragment {
     private Button btn;
-    private TextView tv1 ;
-    private TextView tv2 ;
     String scanContent;
     String scanFormat;
+    View view;
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -39,11 +37,9 @@ public class HomeFragment extends Fragment {
         WaterCount waterCount = new WaterCount();
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView = inflater.inflate(R.layout.homefragment,container,false);
+        view = inflater.inflate(R.layout.homefragment,container,false);
 
-        tv1 = (TextView)rootView.findViewById(R.id.tv1);
-        tv2 = (TextView)rootView.findViewById(R.id.tv2);
-        btn = (Button)rootView.findViewById(R.id.btn);
+        btn = (Button)view.findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +50,7 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-        return rootView;
+        return view;
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
@@ -62,8 +58,7 @@ public class HomeFragment extends Fragment {
         if(scanningResult!=null){
         scanContent = scanningResult.getContents();
         scanFormat = scanningResult.getFormatName();
-        tv1.setText("FORMAT : "+ scanFormat);
-        tv2.setText("CONTENT : "+scanContent);
+        Toast.makeText(getActivity(),scanContent+"\n"+scanFormat,Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(getActivity(), "No scan data received!", Toast.LENGTH_SHORT).show();
         }
