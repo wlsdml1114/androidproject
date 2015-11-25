@@ -1,0 +1,77 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".information">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text=">> 메뉴"
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:background="#222222"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="150dp"
+            android:text="물 마시기 목표"
+            android:textSize="25dp"
+            android:gravity="right"
+            android:layout_height="50dp" />
+        <TextView  android:layout_width="90dp"
+            android:textSize="25dp"
+            android:gravity="right"
+            android:text="0"
+            android:id="@+id/tv_waterdrinking_currentwater"
+            android:layout_height="50dp" />
+        <TextView  android:layout_width="20dp"
+            android:textSize="25dp"
+            android:text="/"
+            android:layout_height="50dp" />
+
+        <TextView  android:layout_width="wrap_content"
+            android:textSize="25dp"
+            android:gravity="left"
+            android:text="2000"
+            android:id="@+id/tv_waterdrinking_wateramount"
+            android:layout_height="50dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="ml"
+                android:textSize="25dp"
+                android:layout_height="50dp" />
+
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/img_waterdrinking"
+            android:layout_height="420dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="60dp">
+            <ImageButton
+                android:layout_width="180dp"
+                android:src="@drawable/barcode_button"
+                android:layout_gravity="left"
+                android:id="@+id/imb_waterdriking_barcode"
+                android:layout_height="match_parent" />
+            <ImageButton
+                android:layout_width="180dp"
+                android:layout_gravity="right"
+                android:src="@drawable/list_button"
+                android:id="@+id/imb_waterdriking_customizing"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

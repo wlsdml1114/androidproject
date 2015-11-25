@@ -18,26 +18,26 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private String[] navItems = {"Home", "statistic", "information"};
+    private String[] navItems = {"","물 마시기", "그래프 및 통계", "알림 및 설정"};
     private ListView lvNavList;
 
     DrawerLayout dlDrawer;
 
     HomeFragment homeFragment;
-    Information information;
+    Waterdrinking waterdrinking;
     Statistic statistic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         homeFragment = new HomeFragment();
-        information = new Information().newInstance();
+        waterdrinking = new Waterdrinking().newInstance();
         statistic = new Statistic().newInstance();
 
         dlDrawer = (DrawerLayout)findViewById(R.id.dl_activity_main_drawer);
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_activity_main,homeFragment).commit();
+                .replace(R.id.fl_activity_main,waterdrinking).commit();
         lvNavList = (ListView)findViewById(R.id.lv_activity_main_nav_list);
 
         lvNavList.setAdapter(
@@ -52,20 +52,20 @@ public class MainActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Fragment fr = new HomeFragment();
             switch (position){
-                case 0:
+                case 3:
                     getFragmentManager()
                             .beginTransaction()
                             .replace(R.id.fl_activity_main, homeFragment).commit();
                     break;
-                case 1:
+                case 2:
                     getFragmentManager()
                             .beginTransaction()
                             .replace(R.id.fl_activity_main, statistic).commit();
                     break;
-                case 2:
+                case 1:
                     getFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.fl_activity_main, information).commit();
+                            .replace(R.id.fl_activity_main, waterdrinking).commit();
                     break;
 //                case 3:
 //                    flContainer.setBackgroundColor(Color.parseColor("#FF8C00"));
